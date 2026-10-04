@@ -1,5 +1,5 @@
 <?php
-include '../infra/connect.php';
+include '../infra/conexao.php';
 
 $erro = '';
 
