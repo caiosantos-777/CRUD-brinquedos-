@@ -3,13 +3,10 @@ $host = "localhost";
 $user = "root";
 $password = "root";
 $database = "crud_brinquedos";
+$conn = mysqli_connect($host, $user, $password, $database);
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-try {
-    $conn = mysqli_connect($host, $user, $password, $database);
-    mysqli_set_charset($conn, "utf8mb4");
-} catch (mysqli_sql_exception $e) {
-    error_log('Falha na conexão: ' . $e->getMessage());
-    die('Não foi possível conectar ao banco de dados.');
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+
+mysqli_set_charset($conn, "utf8mb4");
