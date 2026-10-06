@@ -1,5 +1,5 @@
 <?php
-include 'infra/connect.php';
+include 'infra/conexao.php';
 
 $sql = "SELECT * FROM brinquedos";
 $resultado = mysqli_query($conn, $sql);
@@ -22,7 +22,7 @@ if ($resultado === false) {
 <body>
     <main>
         <h1>Gerenciador de Brinquedos</h1>
-        <a href="public/cadastrar.php">Novo Brinquedo</a>
+        <a href="public/cadastrar_brinquedo.php">Novo Brinquedo</a>
         <br>
         <br>
         <table>
@@ -46,8 +46,8 @@ if ($resultado === false) {
                     echo "<td>R$ " . number_format($brinquedo['preco'], 2, ',', '.') . "</td>";
                     echo "<td>{$brinquedo['estoque']}</td>";
                     echo "<td>
-                            <a href='public/editar.php?id={$brinquedo['id']}'>Editar</a> |
-                            <a href='public/excluir.php?id={$brinquedo['id']}' onclick=\"return confirm('Excluir este brinquedo?');\">Excluir</a>
+                            <a href='public/editar_brinquedos.php?id={$brinquedo['id']}'>Editar</a> |
+                            <a href='public/excluir_brinquedos.php?id={$brinquedo['id']}' onclick=\"return confirm('Excluir este brinquedo?');\">Excluir</a>
                           </td>";
                     echo "</tr>";
                 }
